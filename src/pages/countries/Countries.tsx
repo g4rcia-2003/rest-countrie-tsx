@@ -9,6 +9,7 @@ import { AppStyled } from "@/layouts";
 const Countries = () => {
 	const { regionSelected, inputValue, setInputValue } = useContext(DataContext);
 	const [data, setData] = useState<APIInterface[]>([]);
+	const [notFound, setNotFound] = useState<boolean>(false);
 
 	useEffect(() => {
 		const res = useRemoveAccent(regionSelected);
@@ -22,27 +23,36 @@ const Countries = () => {
 	}, [regionSelected]);
 
 	useEffect(() => {
-		const res = inputValue.toLowerCase();
-		getData(res.length === 0 ? "all" : `name/${res}`).then(resp =>
-			setData(resp)
-		);
+		getData(inputValue.length === 0 ? "all" : `name/${inputValue}`)
+			.then(resp => {
+				setData(resp);
+				setNotFound(false);
+			})
+			.catch(err => {
+				setNotFound(true);
+				console.log(err);
+			});
 	}, [inputValue]);
 
 	return (
 		<AppStyled>
 			<Search />
 			<CountriesStyled>
-				{data.map(({ name, flags, population, region, capital }) => (
-					<Card
-						key={name.common}
-						name={name.common}
-						img={flags.png}
-						population={population}
-						region={region}
-						capital={capital}
-						link={name.official}
-					/>
-				))}
+				{notFound ? (
+					<p>Not Found Countrie</p>
+				) : (
+					data.map(({ name, flags, population, region, capital }) => (
+						<Card
+							key={name.common}
+							name={name.common}
+							img={flags.png}
+							population={population}
+							region={region}
+							capital={capital}
+							link={name.official}
+						/>
+					))
+				)}
 			</CountriesStyled>
 		</AppStyled>
 	);

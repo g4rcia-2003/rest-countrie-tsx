@@ -10,6 +10,7 @@ export const NavBar = styled.header`
 	padding: 1.9rem 1rem;
 	position: fixed;
 	z-index: 999;
+	box-shadow: 1px 1px 1em rgba(0, 0, 0, 0.2);
 
 	h1 {
 		margin: 0;

@@ -5,6 +5,7 @@ export const CardCountrie = styled.div`
 	background-color: ${({ theme }) => theme.elements};
 	height: 20.95rem;
 	border-radius: 0.3rem;
+	box-shadow: 1px 1px 1em rgba(0, 0, 0, 0.2);
 
 	div {
 		background-color: red;

@@ -9,6 +9,7 @@ export const Button = styled.button`
 	border-radius: 0.2rem;
 	justify-content: space-between;
 	align-items: center;
+	box-shadow: 1px 1px 1em rgba(0, 0, 0, 0.2);
 
 	svg {
 		color: ${({ theme }) => theme.text};
@@ -127,6 +128,7 @@ export const InfoCountrie = styled.div`
 				justify-content: center;
 				align-items: center;
 				color: ${({ theme }) => theme.text};
+				box-shadow: 1px 1px 1em rgba(0, 0, 0, 0.2);
 			}
 		}
 	}
@@ -163,6 +165,10 @@ export const InfoCountrie = styled.div`
 
 			& .countries {
 				grid-template-columns: repeat(4, 1fr);
+
+				& .countrie {
+					height: 2rem;
+				}
 			}
 		}
 	}

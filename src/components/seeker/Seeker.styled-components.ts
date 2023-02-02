@@ -7,6 +7,7 @@ export const SeekerComponent = styled.section`
 	position: relative;
 	padding: 0.95rem 1.75rem;
 	border-radius: 0.25rem;
+	box-shadow: 1px 1px 1em rgba(0, 0, 0, 0.2);
 
 	svg {
 		width: 1.1rem;
