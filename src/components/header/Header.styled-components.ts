@@ -5,7 +5,6 @@ export const NavBar = styled.header`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	cursor: pointer;
 	background-color: ${({ theme }) => theme.elements};
 	padding: 1.9rem 1rem;
 	position: fixed;
@@ -32,6 +31,7 @@ export const ContainerIconDrop = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	color: ${({ theme }) => theme.text};
+	cursor: pointer;
 
 	svg {
 		width: 0.9rem;

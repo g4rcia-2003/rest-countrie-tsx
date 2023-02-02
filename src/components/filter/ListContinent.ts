@@ -17,6 +17,7 @@ export const ListContinent = styled.div<{ variant: boolean }>`
 		list-style: none;
 		color: ${({ theme }) => theme.text};
 		font-size: 0.75rem;
+		cursor: pointer;
 	}
 
 	@media only screen and (min-width: 1440px) {
