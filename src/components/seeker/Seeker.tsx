@@ -1,13 +1,13 @@
 import { DataContext } from "@/context";
 import { SearchIcon } from "@/icons";
-import React, { useContext } from "react";
+import { ChangeEvent, useContext } from "react";
 import { SeekerComponent } from "./Seeker.styled-components";
 
 const Seeker = () => {
 	const { setInputValue, inputValue } = useContext(DataContext);
 
-	const changeInput = (e: React.FormEvent<HTMLInputElement>) => {
-		const value = e.currentTarget.value;
+	const changeInput = (e: ChangeEvent<HTMLInputElement>) => {
+		const value = e.target.value;
 		setInputValue(value);
 	};
 	return (

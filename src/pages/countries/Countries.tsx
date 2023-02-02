@@ -1,6 +1,6 @@
 import { Card, Search } from "@/components";
 import { CountriesStyled } from "./Countries.styled-components";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { APIInterface, getData } from "@/api";
 import { DataContext } from "../../context/ContextProvider";
 import { useRemoveAccent } from "../../hooks/useRemoveAccent";
@@ -10,6 +10,8 @@ const Countries = () => {
 	const { regionSelected, inputValue, setInputValue } = useContext(DataContext);
 	const [data, setData] = useState<APIInterface[]>([]);
 	const [notFound, setNotFound] = useState<boolean>(false);
+
+	const debounceRef = useRef<NodeJS.Timeout>();
 
 	useEffect(() => {
 		const res = useRemoveAccent(regionSelected);
@@ -23,15 +25,18 @@ const Countries = () => {
 	}, [regionSelected]);
 
 	useEffect(() => {
-		getData(inputValue.length === 0 ? "all" : `name/${inputValue}`)
-			.then(resp => {
-				setData(resp);
-				setNotFound(false);
-			})
-			.catch(err => {
-				setNotFound(true);
-				console.log(err);
-			});
+		debounceRef.current && clearTimeout(debounceRef.current);
+		debounceRef.current = setTimeout(() => {
+			getData(inputValue.length === 0 ? "all" : `name/${inputValue}`)
+				.then(resp => {
+					setData(resp);
+					setNotFound(false);
+				})
+				.catch(err => {
+					setNotFound(true);
+					console.log(err);
+				});
+		}, 350);
 	}, [inputValue]);
 
 	return (
