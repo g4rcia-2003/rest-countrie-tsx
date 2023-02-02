@@ -1,2 +1,2 @@
-export * from "./ThemeContextProvider";
+export * from "./ContextProvider";
 export * from "./interface.d";
