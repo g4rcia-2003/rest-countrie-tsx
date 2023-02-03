@@ -7,7 +7,7 @@ const Cards = ({ img, name, population, region, capital, link }: CardProps) => {
 		<Link to={`/${link}`}>
 			<CardCountrie>
 				<div>
-					<img src={`${img}`} alt={`Image Flag ${name}`} />
+					<img src={`${img}`} alt={`Image Flag ${name}`} width='100%' />
 				</div>
 				<DataCard>
 					<h2>{name}</h2>
