@@ -8,9 +8,7 @@ export const CardCountrie = styled.div`
 	box-shadow: 1px 1px 1em rgba(0, 0, 0, 0.2);
 
 	div {
-		background-color: red;
 		width: 100%;
-		height: 10rem;
 		border-top-left-radius: 0.3rem;
 		border-top-right-radius: 0.3rem;
 

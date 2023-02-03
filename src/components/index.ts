@@ -9,5 +9,6 @@ export * from "./filter/FilterDropDown";
 export * from "./filter/ListContinent";
 export * from "./header/Header.styled-components";
 export { default as Header } from "./header/Header";
+export { default as Loading } from "./loader/Loading";
 export * from "./seeker/Seeker.styled-components";
 export { default as Seeker } from "./seeker/Seeker";

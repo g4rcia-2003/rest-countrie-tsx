@@ -9,7 +9,10 @@ interface Route {
 	name: string;
 	children?: Route[];
 }
-
+const InfoCountrieLazy = lazy(
+	/* webpackChunkName: "Chunk-Countrie-Info" */ () =>
+		import("@/pages/countrie/Countrie")
+);
 export const routes: Route[] = [
 	{
 		path: "/",
@@ -18,7 +21,7 @@ export const routes: Route[] = [
 	},
 	{
 		path: "/:countrie",
-		Component: lazy(() => import("@/pages/countrie/Countrie")),
+		Component: InfoCountrieLazy,
 		name: "Info-Countrie",
 	},
 ];

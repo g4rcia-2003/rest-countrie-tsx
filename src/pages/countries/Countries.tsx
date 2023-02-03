@@ -50,7 +50,7 @@ const Countries = () => {
 						<Card
 							key={name.common}
 							name={name.common}
-							img={flags.png}
+							img={flags.svg}
 							population={population}
 							region={region}
 							capital={capital}
