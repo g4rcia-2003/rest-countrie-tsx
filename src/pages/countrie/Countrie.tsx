@@ -45,7 +45,7 @@ const Countrie = () => {
 
 	return (
 		<LayoutInfoCountrie>
-			{viewData ? (
+			{data !== undefined && viewData ? (
 				<>
 					<Link to={"/"}>
 						<Button>
