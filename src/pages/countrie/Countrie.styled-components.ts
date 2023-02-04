@@ -10,6 +10,7 @@ export const Button = styled.button`
 	justify-content: space-between;
 	align-items: center;
 	box-shadow: 1px 1px 1em rgba(0, 0, 0, 0.2);
+	cursor: pointer;
 
 	svg {
 		color: ${({ theme }) => theme.text};
@@ -37,11 +38,19 @@ export const ImageCountrie = styled.div`
 	width: 100%;
 	height: 14.25rem;
 	position: relative;
-	top: 0.55rem;
 
 	img {
 		width: 100%;
 		height: 100%;
+	}
+
+	@media only screen and (min-width: 600px) {
+		width: 100%;
+		height: 16rem;
+	}
+
+	@media only screen and (min-width: 1000px) {
+		width: 50%;
 	}
 
 	@media only screen and (min-width: 1440px) {
@@ -129,6 +138,17 @@ export const InfoCountrie = styled.div`
 				align-items: center;
 				color: ${({ theme }) => theme.text};
 				box-shadow: 1px 1px 1em rgba(0, 0, 0, 0.2);
+			}
+		}
+	}
+
+	@media only screen and (min-width: 600px) {
+		& .data {
+			flex-direction: row;
+			justify-content: space-between;
+
+			& .two {
+				margin-top: 3rem;
 			}
 		}
 	}

@@ -1,5 +1,20 @@
+import { ContainerLoader, Loader } from "./Loading.styled-components";
+
 const Loading = () => {
-	return <p>Loading ...</p>;
+	return (
+		<ContainerLoader>
+			<Loader>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</Loader>
+		</ContainerLoader>
+	);
 };
 
 export default Loading;

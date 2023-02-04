@@ -19,6 +19,16 @@ export const LayoutInfoCountrie = styled.section`
 
 	a {
 		width: 32.5%;
+		max-width: 6.43rem;
+	}
+
+	@media only screen and (min-width: 1000px) {
+		gap: 6rem;
+
+		& .infoCountrie {
+			flex-direction: row;
+			gap: 5rem;
+		}
 	}
 
 	@media only screen and (min-width: 1440px) {
@@ -32,6 +42,7 @@ export const LayoutInfoCountrie = styled.section`
 
 		a {
 			width: 10.6%;
+			max-width: 8.43rem;
 		}
 	}
 `;

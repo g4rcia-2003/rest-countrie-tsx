@@ -17,6 +17,10 @@ export const NavBar = styled.header`
 		color: ${({ theme }) => theme.text};
 	}
 
+	@media only screen and (min-width: 600px) {
+		padding: 1.5rem 4%;
+	}
+
 	@media only screen and (min-width: 1440px) {
 		padding: 1.5rem 5rem;
 		h1 {
@@ -32,7 +36,7 @@ export const ContainerIconDrop = styled.div`
 	align-items: center;
 	color: ${({ theme }) => theme.text};
 	cursor: pointer;
-
+	max-width: 5.35rem;
 	svg {
 		width: 0.9rem;
 		fill: ${({ theme }) => theme.text};
@@ -44,7 +48,7 @@ export const ContainerIconDrop = styled.div`
 
 	@media only screen and (min-width: 1440px) {
 		width: 8.4%;
-
+		max-width: 6.72rem;
 		svg {
 			width: 1rem;
 		}
