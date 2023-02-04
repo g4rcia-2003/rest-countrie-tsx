@@ -28,8 +28,7 @@ const Countrie = () => {
 
 	useEffect(() => {
 		try {
-			const res = useRemoveAccent(countrie);
-			getData(`name/${res}?fullText=true`).then(data => {
+			getData(`name/${countrie}?fullText=true`).then(data => {
 				setViewData(false);
 				setData(data[0]);
 				setCurrencies(
@@ -45,89 +44,85 @@ const Countrie = () => {
 
 	return (
 		<LayoutInfoCountrie>
-			{data !== undefined ? (
-				viewData ? (
-					<>
-						<Link to={"/"}>
-							<Button>
-								<BackIcon />
-								<p>Back</p>
-							</Button>
-						</Link>
-						<div className='infoCountrie'>
-							<ImageCountrie>
-								<img src={data?.flags.png} alt={`${data?.flags.alt}`} />
-							</ImageCountrie>
-							<InfoCountrie>
-								<div className='data'>
-									<div className='one'>
-										<h2>{data?.name.common}</h2>
+			{viewData ? (
+				<>
+					<Link to={"/"}>
+						<Button>
+							<BackIcon />
+							<p>Back</p>
+						</Button>
+					</Link>
+					<div className='infoCountrie'>
+						<ImageCountrie>
+							<img src={data?.flags.png} alt={`${data?.flags.alt}`} />
+						</ImageCountrie>
+						<InfoCountrie>
+							<div className='data'>
+								<div className='one'>
+									<h2>{data?.name.common}</h2>
+									<p>
+										<span>Native Name:</span> {data?.name.official}
+									</p>
+									<p>
+										<span>Population:</span>{" "}
+										{data?.population.toLocaleString("en")}
+									</p>
+									<p>
+										<span>Region:</span> {data?.region}
+									</p>
+									<p>
+										<span>Sub Region:</span> {data?.subregion}
+									</p>
+									<p>
+										<span>Capital:</span> {data?.capital}
+									</p>
+								</div>
+								<div className='two'>
+									<p>
+										<span>Top Level Domain:</span> {data?.tld[0]}
+									</p>
+									<p>
+										<span>Currencies:</span>{" "}
+										{currencies?.map((x, i) => (
+											<span key={i}>
+												{x as unknown as string}
+												{i === currencies.length && ","}
+											</span>
+										))}
+									</p>
+									<div className='languages'>
 										<p>
-											<span>Native Name:</span> {data?.name.official}
-										</p>
-										<p>
-											<span>Population:</span>{" "}
-											{data?.population.toLocaleString("en")}
-										</p>
-										<p>
-											<span>Region:</span> {data?.region}
-										</p>
-										<p>
-											<span>Sub Region:</span> {data?.subregion}
-										</p>
-										<p>
-											<span>Capital:</span> {data?.capital}
-										</p>
-									</div>
-									<div className='two'>
-										<p>
-											<span>Top Level Domain:</span> {data?.tld[0]}
-										</p>
-										<p>
-											<span>Currencies:</span>{" "}
-											{currencies?.map((x, i) => (
+											<span>Languages:</span>
+											{language?.map((x, i) => (
 												<span key={i}>
-													{x as unknown as string}
-													{i === currencies.length && ","}
+													{" "}
+													{x as unknown as string}{" "}
+													{i === language.length && ","}{" "}
 												</span>
 											))}
 										</p>
-										<div className='languages'>
-											<p>
-												<span>Languages:</span>
-												{language?.map((x, i) => (
-													<span key={i}>
-														{" "}
-														{x as unknown as string}{" "}
-														{i === language.length && ","}{" "}
-													</span>
-												))}
-											</p>
-										</div>
 									</div>
 								</div>
-								<div className='border-countries'>
-									<h2>Border Countries:</h2>
-									<div className='countries'>
-										{data?.borders === undefined ? (
-											<span> Does Not Have</span>
-										) : (
-											data?.borders.map(i => (
-												<span className='countrie' key={i}>
-													{i}
-												</span>
-											))
-										)}
-									</div>
+							</div>
+							<div className='border-countries'>
+								<h2>Border Countries:</h2>
+								<div className='countries'>
+									{data?.borders === undefined ? (
+										<span> Does Not Have</span>
+									) : (
+										data?.borders.map(i => (
+											<span className='countrie' key={i}>
+												{i}
+											</span>
+										))
+									)}
 								</div>
-							</InfoCountrie>
-						</div>
-					</>
-				) : (
-					<Loading />
-				)
+							</div>
+						</InfoCountrie>
+					</div>
+				</>
 			) : (
-				<p>Error</p>
+				<Loading />
 			)}
 		</LayoutInfoCountrie>
 	);
